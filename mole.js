@@ -5,6 +5,14 @@ let hideTimeout;
 let clickable = false;
 
 function popUpRandomMole() {
+  // Whacked stops at Score 8 and this code was added so it will continue
+  let whacked = document.querySelectorAll('.wgs__mole-head--whacked');
+
+  if (whacked.length) {
+   whacked[0].classList.remove('wgs__mole-head--whacked');
+  }
+  // Whacked stops at Score 8 and this code was added so it will continue
+
   if (molesLeft <= 0) {
     document.querySelector('.sb__game-over').classList.remove('sb__game-over--hidden');
     return;
@@ -49,10 +57,10 @@ window.addEventListener('DOMContentLoaded', () => {
       hideMole(event.target);
 
       // UNCOMMENT THIS LINE OF CODE WHEN DIRECTED
-      // event.target.classList.add('wgs__mole-head--hidden');
+      event.target.classList.add('wgs__mole-head--hidden');
 
       // UNCOMMENT THIS LINE OF CODE WHEN DIRECTED FOR THE BONUS
-      // event.target.classList.add('wgs__mole-head--whacked');
+      event.target.classList.add('wgs__mole-head--whacked');
     });
   }
 });
